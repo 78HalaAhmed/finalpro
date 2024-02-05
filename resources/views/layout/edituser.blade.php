@@ -64,6 +64,11 @@ Rent Car Admin | edit User
 												<input type="text" id="first-name" name="name" value="{{$users->name}}" required="required" class="form-control "  >
 											</div>
 										</div>
+										@error('name')
+										      <div class='alert alert-danger'style="width: 48%; margin-left: 270px;" >
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
 											</label>
@@ -71,12 +76,22 @@ Rent Car Admin | edit User
 												<input type="text" id="user-name" name="username" value="{{$users->username}}" required="required" class="form-control" >
 											</div>
 										</div>
+										@error('username')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="item form-group">
 											<label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="email" class="form-control" type="email" value="{{$users->email}}"  name="email" required="required"  >
 											</div>
 										</div>
+										@error('email')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
 											<div class="checkbox">
@@ -92,10 +107,15 @@ Rent Car Admin | edit User
 												<input type="password" id="password" name="password" value="{{$users->password}}"  required="required" class="form-control"  >
 											</div>
 										</div>
+										@error('password')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>			
+												<a href="{{ route('UsersList')}}" button class="btn btn-primary" type="button">Cancel</button></a>			
 													<button type="submit" class="btn btn-success">Update</button>
 											</div>
 										</div>

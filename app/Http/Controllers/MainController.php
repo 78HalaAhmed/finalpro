@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Http\Request;
 use App\Models\Testimonials;
@@ -23,10 +24,12 @@ class MainController extends Controller
         
     }
     public function carlisting( )
+       
     {
-        $cars=cars::paginate(6)->where('active','=', 1);
+        $paginate = cars::paginate(6);
+        $cars=cars::paginate(6);
         $testimonials=Testimonials::latest()->take(3)->get()->where('published','=', 1);
-        return view('users.index',compact('cars','testimonials'));
+        return view('users.listing',compact('cars','paginate','testimonials'));
     }
 
     public function testimonialsuser()

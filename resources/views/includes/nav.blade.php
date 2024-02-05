@@ -1,3 +1,8 @@
+<?php
+use App\Models\Contact;
+?>
+
+
 <!-- top navigation -->
 <div class="top_nav">
 				<div class="nav_menu">
@@ -27,24 +32,25 @@
 							<li role="presentation" class="nav-item dropdown open">
 								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
-									<span class="kt-badge kt-badge-primary kt-badge--lg kt-badge--bold">          
-</span>
-
+									<span class="badge bg-green">{{$unread}}</span>
 								</a>
+								
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+								@foreach($readmeasge as $message)
 									<li class="nav-item">
-										<a class="dropdown-item">
+										<a href= "{{route('showmessage',$message->id)}}" class="dropdown-item">
+											
 											<span class="image"><img src="{{ asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>
 											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
+												<span>{{$message->firstname .' '.$message->lastname}}</span>
+												<span class="time">{{$message->created_at->diffForHumans()}}</span>
 											</span>
 											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
+											{{$message->message}}
 											</span>
 										</a>
 									</li>
-									
+									@endforeach
 									<li class="nav-item">
 										<div class="text-center">
 											<a class="dropdown-item">
@@ -56,6 +62,7 @@
 								</ul>
 							</li>
 						</ul>
+						
 					</nav>
 				</div>
 			</div>

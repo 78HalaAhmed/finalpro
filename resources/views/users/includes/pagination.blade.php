@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
-            <h2 class="section-heading"><strong>Car Listings</strong></h2>
+            <h2 class="section-heading"><strong>Car Listing</strong></h2>
             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>    
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-5">
                 <div class="custom-pagination">
-                    {{ $car->links() }}
+                    {{ $cars->links() }}
                 </div>
             </div>
         </div>

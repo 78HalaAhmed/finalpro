@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cars;
 use App\Models\Categories;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoriesController extends Controller
 {
@@ -70,10 +73,20 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        Categories::where('id', $id)->delete();        
+        // Categories::where('id', $id)->delete();        
+        // return redirect()->route('CategoriesList');
+        $Categories = cars::where('category_id',$id)->count();
+          if($Categories > 0){
+         return redirect()->route('CategoriesList');
+        }
+        else{
+        $category= Categories::find($id);
+        $category->delete();
         return redirect()->route('CategoriesList');
+    }
+
     }
     public function messages()
     {

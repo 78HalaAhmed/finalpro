@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+@section('title')
+Rent Car Admin | Add User
+@endsection
 @include('includes.head')
 
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
 		@include('includes.sidemenu')
-		  @include('includes.nav')
+		@include('includes.nav')
+			
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>Edit Category</h3>
+							<h3>Manage Users</h3>
 						</div>
 
 						<div class="title_right">
@@ -31,7 +35,7 @@
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Edit Category</h2>
+									<h2>Add User</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -51,21 +55,71 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+									<form  action="{{route('adduser')}} " method="post" data-parsley-validate class="form-horizontal form-label-left">
+                                     @csrf
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="add-category">Edit Category <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Full Name <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="add-category" required="required" class="form-control ">
+											
+												<input type="text" id="first-name" name="name"  class="form-control " value="{{ old('name') }}" >
+											</div>
+										</div>   
+												@error('name')
+										      <div class='alert alert-warning'style="width: 48%; margin-left: 270px;" >
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
+											   
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="text" id="user-name" name="username"  class="form-control" value="{{ old('username') }}" >
+												</div>
+										</div>
+												@error('username')
+										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
+										
+										<div class="item form-group">
+											<label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
+											<div class="col-md-6 col-sm-6 ">
+												<input id="email" class="form-control" type="email" name="email" required="required" value="{{ old('email') }}" >
+												@error('email')
+										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 											</div>
 										</div>
-										
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
+											<div class="checkbox">
+												<label>
+													<input type="checkbox"  name="active"class="flat">
+												</label>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="password" id="password" name="password" required="required" class="form-control" value="{{ old('password') }}" >
+												@error('password')
+										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
+											</div>
+										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
-												<button type="submit" class="btn btn-success">Update</button>
+												<button type="submit" class="btn btn-success">Add</button>
 											</div>
 										</div>
 
@@ -79,7 +133,6 @@
 			</div>
 			<!-- /page content -->
 
-			
-		  @include('includes.footer')
-
+			@include('includes.footer')
+		
 </body></html>

@@ -65,7 +65,7 @@ Rent Car Admin | Add Category
 											</div>
 										</div>
 										@error('categoryname')
-										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                                @enderror
@@ -73,7 +73,7 @@ Rent Car Admin | Add Category
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
+											<a href="{{ route('CategoriesList')}}" button class="btn btn-primary" type="button">Cancel</button></a>	
 												<button type="submit" class="btn btn-success">Add</button>
 											</div>
 										</div>

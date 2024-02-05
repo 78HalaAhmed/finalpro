@@ -6,6 +6,13 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
     </div>
     </div>
+    @if (Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{{ Session::get('success') }}</li>
+        </ul>
+    </div>
+    @endif
     <div class="row">
         <div class="col-lg-8 mb-5" >
         <form action="{{ route('contactus') }}" method="post">
@@ -13,29 +20,41 @@
             <div class="form-group row">
             <div class="col-md-6 mb-4 mb-lg-0">
                 <input type="text" class="form-control" placeholder="First name" name="firstname" value="{{ old('firstname') }}">
+                @error('firstname')
+		   <div class='alert alert-danger'>
+          {{ $message }}
+          </div>
+          @enderror
             </div>
             <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="Last name" name="lastname" value="{{ old('lastname') }}">
+                @error('lastname')
+		 <div class='alert alert-danger'>
+         {{ $message }}
+         </div>
+         @enderror
             </div>
             </div>
-
             <div class="form-group row">
             <div class="col-md-12">
                 <input type="text" class="form-control" placeholder="Email address" name="email" value="{{ old('email') }}">
-            </div>
-            </div>
-            @error('email')
-                <div class='alert alert-warning' style="width: 49%; margin-left: 310px">
+                @error('email')
+                <div class='alert alert-danger' >
                     {{ $message }}
                 </div>
             @enderror
-
+            </div>
+            </div>
             <div class="form-group row">
             <div class="col-md-12">
                 <textarea id="" class="form-control" placeholder="Write your message." cols="30" rows="10" name="message">{{ old('message') }}</textarea>
+                @error('message')
+                <div class='alert alert-danger' >
+                    {{ $message }}
+                </div>
+            @enderror
             </div>
             </div>
-            
             <div class="form-group row">
             <div class="col-md-6 mr-auto">
                 <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">

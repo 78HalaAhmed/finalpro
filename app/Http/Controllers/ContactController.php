@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
+use Session;
 
 class ContactController extends Controller
 {
@@ -32,10 +33,6 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     { 
-    //     $content=['firstname'=>$request->firstname,
-    //     'email'=>$request->email,
-    //     'message'=>$request->message,
-    // ];
         $data = $request->validate([
             'firstname'=>'required|string',
             'lastname'=>'required|string',
@@ -45,7 +42,7 @@ class ContactController extends Controller
         Mail::to( 'recipient@email.com')->send( new ContactMail($request));
         
         Contact::create($data);
-        return redirect()->back()->with('success', 'Email sent successfully!');
+        return redirect()->back()->with('success', 'We have received your message and would like to thank you for writing to us.');
     }
 
     /**
@@ -54,6 +51,7 @@ class ContactController extends Controller
     public function show(string $id)
     {
        $Contact = Contact::findOrFail($id);
+       $Contact->update(['unreadmessage'=>1]);
         return view('layout.ShowMessage', compact('Contact'));
     }
 
@@ -81,4 +79,10 @@ class ContactController extends Controller
         Contact::where('id',$id)->delete();
         return redirect()->route('Messages');
     }
+    public function message()
+    {
+        $msg=Contact::get();
+        return  view('includes.nav',compact('msg'));
+    }
+  
 }

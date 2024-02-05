@@ -63,6 +63,11 @@ Rent Car Admin | edit testimonials
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input type="text" id="name" required="required" class="form-control " name="name" value="{{$testimonials->name}}">
+												@error('name')
+										    <div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                         @enderror
 											</div>
 										</div>
                                         <div class="item form-group">
@@ -72,6 +77,11 @@ Rent Car Admin | edit testimonials
 												<input type="text" id="position" required="required" class="form-control " name="position" value="{{$testimonials->position}}">
 											</div>
 										</div>
+										@error('position')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                         @enderror
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 											</label>
@@ -79,6 +89,11 @@ Rent Car Admin | edit testimonials
 												<textarea id="content" name="content" required="required" class="form-control">{{$testimonials->content}}</textarea>
 											</div>
 										</div>
+										@error('content')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
@@ -96,10 +111,15 @@ Rent Car Admin | edit testimonials
 												<img src="{{ asset('userassets/images/'.$testimonials->image) }}" style="width: 200px;">
 											</div>
 										</div>
+										@error('image')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
+											<a href="{{ route('admintestimonials')}}" button class="btn btn-primary" type="button">Cancel</button></a>
 												<button type="submit" class="btn btn-success">update</button>
 											</div>
 										</div>

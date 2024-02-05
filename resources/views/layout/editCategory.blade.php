@@ -64,11 +64,16 @@ Rent Car Admin | edit Category
 												<input type="text" id="add-category" required="required" class="form-control " name="categoryname" value="{{$categories->categoryname}}">
 											</div>
 										</div>
+										@error('categoryname')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
+											<a href="{{ route('CategoriesList')}}" button class="btn btn-primary" type="button">Cancel</button></a>	
 												<button type="submit" class="btn btn-success">Update</button>
 											</div>
 										</div>

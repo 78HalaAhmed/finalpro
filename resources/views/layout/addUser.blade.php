@@ -62,11 +62,11 @@ Rent Car Admin | Add User
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 											
-												<input type="text" id="first-name" name="name"  class="form-control " value="{{ old('name') }}" >
+												<input type="text" id="first-name"   required="required" name="name"  class="form-control " value="{{ old('name') }}" >
 											</div>
 										</div>   
 												@error('name')
-										      <div class='alert alert-warning'style="width: 48%; margin-left: 270px;" >
+										      <div class='alert alert-danger'style="width: 48%; margin-left: 270px;" >
                                               {{ $message }}
                                                 </div>
                                                @enderror
@@ -75,11 +75,11 @@ Rent Car Admin | Add User
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="user-name" name="username"  class="form-control" value="{{ old('username') }}" >
+												<input type="text" id="user-name" name="username"  required="required"  class="form-control" value="{{ old('username') }}" >
 												</div>
 										</div>
 												@error('username')
-										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                                @enderror
@@ -87,14 +87,14 @@ Rent Car Admin | Add User
 										<div class="item form-group">
 											<label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="email" class="form-control" type="email" name="email" required="required" value="{{ old('email') }}" >
-												@error('email')
-										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+												<input id="email" class="form-control" type="email" name="email"   required="required" value="{{ old('email') }}" >
+											</div>
+										</div>
+										@error('email')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                                @enderror
-											</div>
-										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
 											<div class="checkbox">
@@ -108,17 +108,18 @@ Rent Car Admin | Add User
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input type="password" id="password" name="password" required="required" class="form-control" value="{{ old('password') }}" >
-												@error('password')
-										<div class='alert alert-warning' style="width: 48%; margin-left: 270px;">
+											</div>
+										</div>
+										@error('password')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                                @enderror
-											</div>
-										</div>
+										
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
+											<a href="{{ route('UsersList')}}" button class="btn btn-primary" type="button">Cancel</button></a>	
 												<button type="submit" class="btn btn-success">Add</button>
 											</div>
 										</div>

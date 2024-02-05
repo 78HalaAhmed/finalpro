@@ -68,7 +68,7 @@ Route::get('deletecar/{id}',[CarsController::class, 'destroy']);
 //route of testimonials
 
 Route::group(
-    ['prefix' => 'cars'], function () {
+    ['prefix' => 'testimonials'], function () {
 Route::get('testimonials',[TestimonialsController::class,'index'])->name('admintestimonials');
 Route::get('addtestimonials',[TestimonialsController::class,'create'])->name('AddTestimonialsadmin');
 Route::post('storetestimonials',[TestimonialsController::class,'store'])->name('addtestimonials');
@@ -80,8 +80,9 @@ Route::get('deletetestimonials/{id}',[TestimonialsController::class, 'destroy'])
 Route::group(
     ['prefix' => 'contact'], function () {
 Route::get('contact',[ContactController::class,'index'])->name('Messages');
-Route::get('showMessage/{id}',[ContactController::class, 'show']);
+Route::get('showMessage/{id}',[ContactController::class, 'show'])->name('showmessage');
 Route::get('deletemessage/{id}',[ContactController::class, 'destroy']);
+Route::get('message',[ContactController::class, 'message'])->name('read');
 });
 
 });

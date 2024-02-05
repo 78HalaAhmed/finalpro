@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-lg-3">
                 <h2 class="footer-heading mb-4">About Us</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                <p> I am Hala Ahmed, Backend Developer with a focus on PHP Laravel, seeks entry-level opportunities in a high-level professional setting. Eager to contribute my skills, adaptability, and passion for innovative solutions to a dynamic team, while continuously learning and advancing in the field of web development</p>
                 <ul class="list-unstyled social">
                 <li><a href="#"><span class="icon-facebook"></span></a></li>
                 <li><a href="#"><span class="icon-instagram"></span></a></li>
                 <li><a href="#"><span class="icon-twitter"></span></a></li>
-                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                <li><a href="https://www.linkedin.com/in/hala-ahmed-b414b5226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><span class="icon-linkedin"></span></a></li>
                 </ul>
             </div>
             <div class="col-lg-8 ml-auto">

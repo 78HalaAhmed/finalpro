@@ -17,10 +17,20 @@ use App\Models\Categories;
     @include('users.includes.navbar')
       
     
-    @push('header')
-    {{ $cars->title }}
-    @endpush
-    @include('users.includes.header')
+    <div class="hero inner-page" style=" background-image: url('{{asset('userassets/images/hero_1_a.jpg')}}');">
+    <div class="container">
+        <div class="row align-items-end ">
+        <div class="col-lg-12">
+
+            <div class="intro">
+            <h1><strong>{{ $cars->title }}</strong></h1>
+            <div class="pb-4"><strong class="text-black">Posted on {{$cars->created_at->format('M d, Y')}}</strong></div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -97,6 +107,17 @@ use App\Models\Categories;
             
 
             <p class="lead">{{ $cars->content }}</p>
+            <P>{{ $cars->content }}</P>
+            <Blockquote><P>{{ $cars->content }}</P></Blockquote>
+            <P>{{ $cars->content }}</P>
+            <P>{{ $cars->content }}</P>
+            <P>{{ $cars->content }}</P>
+            <Blockquote><P>{{ $cars->content }}</P></Blockquote>
+            <P>{{ $cars->content }}</P>
+            <P>{{ $cars->content }}</P>
+            
+
+
 
 
             <div class="pt-5">

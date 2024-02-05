@@ -28,7 +28,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
         $messages = $this->messages();
         $data=$request->validate([
@@ -37,7 +37,9 @@ class UserController extends Controller
             'email'=>'required',
             'password'=>'required'],$messages);
             $data['active'] = isset($request['active']);
-            User::create($data);
+            
+          $users = User::create($data);
+          $users->markEmailASVerified();
             return redirect()->route('UsersList');
     }
 

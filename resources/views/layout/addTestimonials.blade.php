@@ -63,11 +63,11 @@ Rent Car Admin | Add Testimonials
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												
-												<input type="text" id="name"  class="form-control " name="name" value="{{ old('name') }}">
+												<input type="text" id="name" required="required" class="form-control " name="name" value="{{ old('name') }}">
 											</div>
 										</div>
 										@error('name')
-										    <div class='alert alert-warning' style="width: 49%; margin-left: 310px">
+										    <div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                          @enderror
@@ -75,11 +75,11 @@ Rent Car Admin | Add Testimonials
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Position <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="position"  class="form-control " name="position" value="{{ old('position') }}">
+												<input type="text" id="position" required="required" class="form-control " name="position" value="{{ old('position') }}">
 											</div>
 										</div>
 										@error('position')
-										<div class='alert alert-warning' style="width: 49%; margin-left: 310px">
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
                                               {{ $message }}
                                                 </div>
                                          @enderror
@@ -90,6 +90,11 @@ Rent Car Admin | Add Testimonials
 												<textarea id="content" name="content" required="required" class="form-control" >{{ old('content') }}</textarea>
 											</div>
 										</div>
+										@error('content')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
@@ -106,10 +111,15 @@ Rent Car Admin | Add Testimonials
 												<input type="file" id="image" name="image" required="required" class="form-control" value="{{ old('image') }}">
 											</div>
 										</div>
+										@error('image')
+										<div class='alert alert-danger' style="width: 48%; margin-left: 270px;">
+                                              {{ $message }}
+                                                </div>
+                                               @enderror
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
+											<a href="{{ route('admintestimonials')}}" button class="btn btn-primary" type="button">Cancel</button></a>
 												<button type="submit" class="btn btn-success">Add</button>
 											</div>
 										</div>

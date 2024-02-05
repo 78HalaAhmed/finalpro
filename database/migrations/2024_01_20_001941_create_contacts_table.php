@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email');
             $table->string('message');
-
+            $table->boolean('unreadmessage')->default(0);
             $table->timestamps();
         });
     }
